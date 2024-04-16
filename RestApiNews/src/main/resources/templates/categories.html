@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Все категории</title>
+</head>
+<body>
+<h1>Все категории</h1>
+<table>
+    <tr>
+        <th>ID_Категории</th>
+        <th>Имя</th>
+    </tr>
+    <tr th:each="categories : ${categoriesList}">
+        <td th:text="${categories.id}"></td>
+        <td th:text="${categories.name}"></td>
+    </tr>
+</table>
+</body>
+</html>

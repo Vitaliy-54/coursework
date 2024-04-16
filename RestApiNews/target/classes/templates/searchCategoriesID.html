@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Поиск категории по ID</title>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            var id = document.getElementById('categoriesId').value;
+            window.location.href = '/categories/search/' + id;
+        }
+    </script>
+</head>
+<body>
+<h1>Поиск категории по ID</h1>
+<form onsubmit="submitForm(event)">
+    <p>Введите ID категории: <input type="text" id="categoriesId" /></p>
+    <p><input type="submit" value="Найти" /></p>
+</form>
+</body>
+</html>
