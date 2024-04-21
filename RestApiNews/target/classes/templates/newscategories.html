@@ -2,18 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Связь новостей и категорий</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
+<div th:replace="menu :: menu"></div>
 <h1>Связь новостей и категорий</h1>
 <table>
     <tr>
         <th>ID_Новости</th>
         <th>ID_Категории</th>
     </tr>
-    <tr th:each="NewsCategory : ${newsCategoriesList}">
-        <td th:text="${newsCategories.newsId}"></td>
-        <td th:text="${newsCategories.сategoriesId}"></td>
+    <tr th:each="newsCategory : ${newsCategoriesList}">
+        <td th:text="${newsCategory.news.id}"></td>
+        <td th:text="${newsCategory.categories.id}"></td>
     </tr>
 </table>
 </body>
 </html>
+
+

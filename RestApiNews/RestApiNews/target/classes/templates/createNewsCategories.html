@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавление связи новости и категории</title>
+</head>
+<body>
+<h1>Добавление связи новости и категории</h1>
+<form th:action="@{/newscategories/create}" th:object="${newsCategory}" method="post">
+    <p>ID_Новости: <input type="text" th:field="*{newsId}" /></p>
+    <p>ID_Категории: <input type="text" th:field="*{categoriesId}" /></p>
+    <p><input type="submit" value="Добавить" /></p>
+</form>
+</body>
+</html>

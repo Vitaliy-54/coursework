@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Обновить новость</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+<div th:replace="menu :: menu"></div>
+<h1>Обновить категорию</h1>
+<form action="#" th:action="@{'/categories/update/' + *{id}}" th:object="${categories}" method="post">
+  <p>Название категории: <input type="text" th:field="*{name}" /></p>
+  <p><input type="submit" value="Обновить" /></p>
+</form>
+</body>
+</html>
+
+

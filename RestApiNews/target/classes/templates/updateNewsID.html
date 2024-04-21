@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Обновить новость</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+<div th:replace="menu :: menu"></div>
+<h1>Обновить новость</h1>
+<form action="#" th:action="@{'/news/update/' + *{id}}" th:object="${news}" method="post">
+    <p>Заголовок: <textarea th:field="*{title}"></textarea></p>
+    <p>Содержание: <textarea th:field="*{content}"></textarea></p>
+    <p>Дата публикации: <input type="date" id="publishDate" th:field="*{publishDate}" required></p>
+    <p><input type="submit" value="Обновить" /></p>
+</form>
+</body>
+</html>
+
+

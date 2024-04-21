@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "newscategories")
 @Data
@@ -13,8 +15,15 @@ import lombok.NoArgsConstructor;
 public class NewsCategories {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "NewsID")
-    private Long newsId;
-    @Column(name = "CategoriesID")
-    private Long categoriesId;
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "NewsID", nullable = false)
+    private News news;
+
+    @ManyToOne
+    @JoinColumn(name = "CategoriesID", nullable = false)
+    private Categories categories;
 }
+
+

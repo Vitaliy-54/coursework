@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Главная страница</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+<div th:replace="menu :: menu"></div>
+<div><h1>Новости</h1></div>
+<div th:each="newsCategory : ${newsCategoriesList}">
+    <div>
+        <h1 th:text="${newsCategory.news.title}"></h1>
+    </div>
+    <div class="content">
+        <font size="5" th:text="${newsCategory.news.content}"></font>
+    </div>
+    <div class="category-date">
+        <div>
+            <span class="label">Категория:</span>
+            <big th:each="category, stat : ${newsCategory.categories}" th:text="${category.name + (stat.last ? '' : ' ')}"></big>
+        </div>
+        <div>
+            <span class="label">Дата публикации:</span> <big th:text="${newsCategory.news.publishDate}"></big>
+        </div>
+    </div>
+    <hr/>
+</div>
+</body>
+</html>

@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Поиск новости по ID</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
     <script>
         function submitForm(event) {
             event.preventDefault();
@@ -11,6 +12,7 @@
     </script>
 </head>
 <body>
+<div th:replace="menu :: menu"></div>
 <h1>Поиск новости по ID</h1>
 <form onsubmit="submitForm(event)">
     <p>Введите ID новости: <input type="text" id="newsId" /></p>

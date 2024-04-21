@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Поиск новости по ID</title>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            var id = document.getElementById('newsId').value;
+            window.location.href = '/news/search/' + id;
+        }
+    </script>
+</head>
+<body>
+<h1>Поиск новости по ID</h1>
+<form onsubmit="submitForm(event)">
+    <p>Введите ID новости: <input type="text" id="newsId" /></p>
+    <p><input type="submit" value="Найти" /></p>
+</form>
+</body>
+</html>

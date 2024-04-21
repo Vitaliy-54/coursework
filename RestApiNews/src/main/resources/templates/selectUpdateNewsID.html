@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Обновить новость</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            var id = document.getElementById('newsId').value;
+            window.location.href = '/news/update/' + id;
+        }
+    </script>
+</head>
+<body>
+<div th:replace="menu :: menu"></div>
+<h1>Выберите новость для обновления</h1>
+<form onsubmit="submitForm(event)">
+    <p>Введите ID новости: <input type="text" id="newsId" /></p>
+    <p><input type="submit" value="Выбрать новость" /></p>
+</form>
+</body>
+</html>

@@ -2,12 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Добавление связи новости и категории</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
+<div th:replace="menu :: menu"></div>
 <h1>Добавление связи новости и категории</h1>
-<form th:action="@{/newscategories/create}" th:object="${newsCategory}" method="post">
-    <p>ID_Новости: <input type="text" th:field="*{newsId}" /></p>
-    <p>ID_Категории: <input type="text" th:field="*{categoriesId}" /></p>
+<form th:action="@{/newscategories/create}" method="post">
+    <p>ID_Новости: <input type="text" name="newsId" /></p>
+    <p>ID_Категории: <input type="text" name="categoriesId" /></p>
     <p><input type="submit" value="Добавить" /></p>
 </form>
 </body>

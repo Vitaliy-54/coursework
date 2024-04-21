@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Все новости</title>
+</head>
+<body>
+<h1>Все новости</h1>
+<table>
+    <tr>
+        <th>ID_Новости</th>
+        <th>Заголовок</th>
+        <th>Содержание</th>
+        <th>Дата публикации</th>
+    </tr>
+    <tr th:each="news : ${newsList}">
+        <td th:text="${news.id}"></td>
+        <td th:text="${news.title}"></td>
+        <td th:text="${news.content}"></td>
+        <td th:text="${news.publishDate}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,11 +1,10 @@
 package ru.mycompany.restapinews.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "news")
@@ -23,4 +22,7 @@ public class News {
     private String content;
     @Column(name = "PublishDate")
     private Date publishDate;
+
+    @OneToMany(mappedBy = "news")
+    private List<NewsCategories> newsCategories;
 }

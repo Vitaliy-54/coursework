@@ -1,9 +1,9 @@
 package ru.mycompany.restapinews.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "categories")
@@ -17,4 +17,8 @@ public class Categories {
     private Long id;
     @Column(name = "Name")
     private String name;
+
+    @OneToMany(mappedBy = "categories")
+    private List<NewsCategories> newsCategories;
 }
+

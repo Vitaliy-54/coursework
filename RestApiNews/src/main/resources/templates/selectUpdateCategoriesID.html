@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Обновить новость</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            var id = document.getElementById('categoriesId').value;
+            window.location.href = '/categories/update/' + id;
+        }
+    </script>
+</head>
+<body>
+<div th:replace="menu :: menu"></div>
+<h1>Выберите категорию для обновления</h1>
+<form onsubmit="submitForm(event)">
+    <p>Введите ID категории: <input type="text" id="categoriesId" /></p>
+    <p><input type="submit" value="Выбрать категорию" /></p>
+</form>
+</body>
+</html>

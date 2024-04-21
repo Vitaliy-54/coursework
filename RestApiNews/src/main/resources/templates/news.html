@@ -2,8 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Все новости</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
+<div th:replace="menu :: menu"></div>
 <h1>Все новости</h1>
 <table>
     <tr>

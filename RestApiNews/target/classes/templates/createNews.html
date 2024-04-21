@@ -2,11 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Добавление новости</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
+<div th:replace="menu :: menu"></div>
 <h1>Добавление новости</h1>
 <form th:action="@{/news/create}" th:object="${news}" method="post">
-    <p>Заголовок: <input type="text" th:field="*{title}" /></p>
+    <p>Заголовок: <textarea th:field="*{title}"></textarea></p>
     <p>Содержание: <textarea th:field="*{content}"></textarea></p>
     <p>Дата публикации: <input type="date" name="publishDate" /></p>
     <p><input type="submit" value="Добавить" /></p>
