@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Удаление связи новостей и категорий</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+<div th:replace="~{menu :: menu}"></div>
+<h1>Удаление категории</h1>
+<form action="#" th:action="@{/categories/delete}" method="post">
+  <table>
+    <tr>
+      <td>Введите ID Категории:</td>
+      <td><input type="text" name="categoriesId" /></td>
+    </tr>
+    <tr>
+      <td><input type="submit" value="Удалить" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

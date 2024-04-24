@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
-<div th:replace="menu :: menu"></div>
+<div th:replace="~{menu :: menu}"></div>
 <h1>Добавление связи новости и категории</h1>
 <form th:action="@{/newscategories/create}" method="post">
     <p>ID_Новости: <input type="text" name="newsId" /></p>

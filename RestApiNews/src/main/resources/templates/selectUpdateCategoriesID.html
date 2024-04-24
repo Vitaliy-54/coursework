@@ -12,7 +12,7 @@
     </script>
 </head>
 <body>
-<div th:replace="menu :: menu"></div>
+<div th:replace="~{menu :: menu}"></div>
 <h1>Выберите категорию для обновления</h1>
 <form onsubmit="submitForm(event)">
     <p>Введите ID категории: <input type="text" id="categoriesId" /></p>

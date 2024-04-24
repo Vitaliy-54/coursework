@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
-<div th:replace="menu :: menu"></div>
+<div th:replace="~{menu :: menu}"></div>
 <h1>Добавление новости</h1>
 <form th:action="@{/news/create}" th:object="${news}" method="post">
     <p>Заголовок: <textarea th:field="*{title}"></textarea></p>
