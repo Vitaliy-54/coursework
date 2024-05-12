@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Страница регистрации</title>
+</head>
+<body>
+<h2>Регистрация</h2>
+<form action="/registration" method="post">
+    <label for="username">Имя пользователя:</label><br>
+    <input type="text" id="username" name="username" required><br>
+    <label for="password">Пароль:</label><br>
+    <input type="password" id="password" name="password" required><br>
+    <label for="confirmPassword">Подтвердите пароль:</label><br>
+    <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+    <label for="role">Роль:</label><br>
+    <select id="role" name="role">
+        <option value="ROLE_USER">Пользователь</option>
+        <option value="ROLE_ADMIN">Администратор</option>
+    </select><br>
+    <input type="submit" value="Зарегистрироваться">
+</form>
+</body>
+</html>

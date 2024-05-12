@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавление категории</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container py-5">
+<div th:replace="~{menu :: menu}"></div>
+<h1 class="text-center mb-4">Добавление категории</h1>
+<form th:action="@{/categories/create}" th:object="${categories}" method="post" class="mx-auto" style="max-width: 300px;">
+    <div class="form-group">
+        <label for="name">Название категории:</label>
+        <input type="text" th:field="*{name}" id="name" class="form-control" required/>
+    </div>
+    <input type="submit" value="Добавить" class="btn btn-primary btn-block"/>
+</form>
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+

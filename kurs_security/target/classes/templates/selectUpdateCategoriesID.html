@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Обновление категории</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            var id = document.getElementById('categoriesId').value;
+            window.location.href = '/categories/update/' + id;
+        }
+    </script>
+</head>
+<body class="container py-5">
+<div th:replace="~{menu :: menu}"></div>
+<h1 class="text-center mb-4">Выберите категорию для обновления</h1>
+<div th:if="${error}" class="alert alert-danger d-flex justify-content-center" role="alert" th:text="${error}"></div>
+<form onsubmit="submitForm(event)" class="mx-auto" style="max-width: 300px;">
+    <div class="form-group">
+        <label for="categoriesId">Введите ID категории:</label>
+        <input type="number" id="categoriesId" min=1 class="form-control" required/>
+    </div>
+    <input type="submit" value="Выбрать категорию" class="btn btn-primary btn-block"/>
+</form>
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

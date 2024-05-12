@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Обновить новость</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        textarea {
+            resize: both;
+        }
+    </style>
+</head>
+<body class="container py-5">
+<div th:replace="~{menu :: menu}"></div>
+<h1 class="text-center mb-4">Обновить новость</h1>
+<form action="#" th:action="@{'/news/update/' + *{id}}" th:object="${news}" method="post" class="mx-auto" style="max-width: 300px;">
+    <div class="form-group">
+        <label for="title">Заголовок:</label>
+        <textarea th:field="*{title}" id="title" class="form-control" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="content">Содержание:</label>
+        <textarea th:field="*{content}" id="content" class="form-control" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="publishDate">Дата публикации:</label>
+        <input type="date" id="publishDate" th:field="*{publishDate}" class="form-control" required>
+    </div>
+    <input type="submit" value="Обновить" class="btn btn-primary btn-block"/>
+</form>
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
