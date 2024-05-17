@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Связь новостей и категорий</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body class="container py-5">
+<div th:replace="~{menu :: menu}"></div>
+<h1 class="text-center mb-4">Связь новостей и категорий</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID_Новости</th>
+        <th>ID_Категории</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="newsCategory : ${newsCategoriesList}">
+        <td th:text="${newsCategory.news.id}"></td>
+        <td th:text="${newsCategory.categories.id}"></td>
+    </tr>
+    </tbody>
+</table>
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

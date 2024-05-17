@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Удаление новости</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body class="container py-5">
+<div th:replace="~{menu :: menu}"></div>
+<h1 class="text-center mb-4">Удаление новости</h1>
+<div th:if="${error}" class="alert alert-danger d-flex justify-content-center" role="alert" th:text="${error}"></div>
+<form action="#" th:action="@{/news/delete}" method="post" class="mx-auto" style="max-width: 300px;">
+  <div class="form-group">
+    <label for="newsId">Введите ID Новости:</label>
+    <input type="number" name="newsId" id="newsId" min=1 class="form-control" required/>
+  </div>
+  <input type="submit" value="Удалить" class="btn btn-primary btn-block"/>
+</form>
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

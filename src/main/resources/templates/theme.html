@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Новости темы: ' + ${themeName}"></title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+<div th:replace="~{menu :: menu}"></div>
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-8 blog-main">
+            <h3 class="pb-3 mb-4 font-italic border-bottom" th:text="${themeName}"></h3>
+            <div th:each="news : ${newsList}" class="blog-post">
+                <h2 class="blog-post-title" th:text="${news.title}"></h2>
+                <hr>
+                <p th:text="${news.content}"></p>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span class="badge badge-secondary" th:text="${themeName}"></span>
+                    <span th:text="${news.publishDate}" style="margin-left: auto;"></span>
+                </div>
+            </div>
+        </div>
+        <aside class="col-md-4 blog-sidebar">
+            <div class="p-3 mb-3 bg-light rounded">
+                <h4 class="font-italic">О нас</h4>
+                <p class="mb-0">Мы предоставляем актуальные новости со всего мира каждый день.</p>
+            </div>
+            <div class="p-3">
+                <h4 class="font-italic">Темы</h4>
+                <ol class="list-unstyled mb-0">
+                    <li th:each="category : ${allCategories}">
+                        <a th:href="@{'/theme/' + ${category.id}}" th:text="${category.name}"></a>
+                    </li>
+                </ol>
+            </div>
+        </aside>
+    </div>
+</main>
+<!-- Bootstrap JS и jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="menu">
+    <a class="navbar-brand">
+        <img src="/logo.png" style="height:40px;">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+            </li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Новости
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                    <a class="dropdown-item" href="/news">Просмотр новостей</a>
+                    <a class="dropdown-item" href="/news/create">Создать новость</a>
+                    <a class="dropdown-item" href="/news/update">Обновить новость</a>
+                    <a class="dropdown-item" href="/news/delete">Удалить новость</a>
+                    <a class="dropdown-item" href="/news/search">Поиск новости по id</a>
+                    <a class="dropdown-item" href="/news/wordcount">Подсчет слов в новости</a>
+                </div>
+            </li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Категории
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                    <a class="dropdown-item" href="/categories">Просмотр категорий</a>
+                    <a class="dropdown-item" href="/categories/create">Создать категорию</a>
+                    <a class="dropdown-item" href="/categories/update">Обновить категорию</a>
+                    <a class="dropdown-item" href="/categories/delete">Удалить категорию</a>
+                    <a class="dropdown-item" href="/categories/search">Поиск категории по id</a>
+                    <a class="dropdown-item" href="/CategoriesForNews">Поиск категории по id новости</a>
+                </div>
+            </li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Связи новость-категория
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+                    <a class="dropdown-item" href="/newscategories">Просмотр связей</a>
+                    <a class="dropdown-item" href="/newscategories/create">Создать связь</a>
+                    <a class="dropdown-item" href="/newscategories/delete">Удалить связь</a>
+                </div>
+            </li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Пользователи
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink4">
+                    <a class="dropdown-item" href="/client">Просмотр пользователей</a>
+                    <a class="dropdown-item" href="/client/create">Добавление пользователя</a>
+                    <a class="dropdown-item" href="/client/delete">Удаление пользователя</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/confirm-logout" style="color: blue;">Выйти</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
