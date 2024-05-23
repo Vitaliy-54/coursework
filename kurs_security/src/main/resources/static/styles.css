@@ -1,0 +1,19 @@
+ .navbar {
+    background-color: white !important;
+   }
+
+.table {
+    background-color: white;
+   }
+
+ .blog-post {
+    margin-bottom: 2em;
+   }
+
+ .bg-light {
+    background-color: white !important;
+   }
+
+ textarea {
+    resize: both !important;
+   }
