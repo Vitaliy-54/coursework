@@ -20,16 +20,16 @@ public class WebSecurityConfig {
     SecurityFilterChain configure(HttpSecurity http) throws Exception {
 
         http.authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/registration") .permitAll()
-                        .requestMatchers("/", "/logout", "/confirm-logout", "/logo.png", "/theme/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/registration", "/registration-success") .permitAll()
+                        .requestMatchers("/", "/logout", "/confirm-logout", "/logo.png", "/theme/**", "/styles.css").hasAnyRole("USER", "ADMIN")
                         .anyRequest().hasRole("ADMIN"))
                 .formLogin(formLogin -> formLogin
                         .defaultSuccessUrl("/", true)
                         .permitAll())
                 .formLogin(form -> form
                         .loginPage("/login")
-                         .permitAll()
-        );
+                        .permitAll()
+                );
         return http.build();
     }
 }

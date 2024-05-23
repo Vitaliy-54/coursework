@@ -3,22 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="'Новости темы: ' + ${themeName}"></title>
-    <!-- Подключение Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-        .blog-post {
-            margin-bottom: 2em;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
 <div th:replace="~{menu :: menu}"></div>
-<!-- Основной контент -->
 <main role="main" class="container">
     <div class="row">
         <div class="col-md-8 blog-main">
             <h3 class="pb-3 mb-4 font-italic border-bottom" th:text="${themeName}"></h3>
-            <!-- Секция новостей -->
             <div th:each="news : ${newsList}" class="blog-post">
                 <h2 class="blog-post-title" th:text="${news.title}"></h2>
                 <hr>
@@ -27,9 +21,8 @@
                     <span class="badge badge-secondary" th:text="${themeName}"></span>
                     <span th:text="${news.publishDate}" style="margin-left: auto;"></span>
                 </div>
-            </div><!-- /.blog-post -->
-        </div><!-- /.blog-main -->
-        <!-- Боковая панель -->
+            </div>
+        </div>
         <aside class="col-md-4 blog-sidebar">
             <div class="p-3 mb-3 bg-light rounded">
                 <h4 class="font-italic">О нас</h4>
@@ -43,11 +36,10 @@
                     </li>
                 </ol>
             </div>
-
-        </aside><!-- /.blog-sidebar -->
-    </div><!-- /.row -->
-</main><!-- /.container -->
-<!-- Подключение Bootstrap JS и jQuery -->
+        </aside>
+    </div>
+</main>
+<!-- Bootstrap JS и jQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>

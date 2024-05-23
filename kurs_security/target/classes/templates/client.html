@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Обновить категорию</title>
+  <title>Все пользователи</title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body class="container py-5">
 <div th:replace="~{menu :: menu}"></div>
-<h1 class="text-center mb-4">Обновить категорию</h1>
-<form action="#" th:action="@{'/categories/update/' + *{id}}" th:object="${categories}" method="post" class="mx-auto" style="max-width: 300px;">
-  <div class="form-group">
-    <label for="name">Название категории:</label>
-    <textarea th:field="*{name}" id="name" class="form-control" required></textarea>
-  </div>
-  <input type="submit" value="Обновить" class="btn btn-primary btn-block"/>
-</form>
+<h1 class="text-center mb-4">Все пользователи</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Имя пользователя</th>
+    <th>Роль</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="user : ${userList}">
+    <td th:text="${user.id}"></td>
+    <td th:text="${user.username}"></td>
+    <td th:text="${user.role}"></td>
+  </tr>
+  </tbody>
+</table>
 <!-- Bootstrap JS and jQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

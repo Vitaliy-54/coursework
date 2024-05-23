@@ -48,7 +48,7 @@ public class CategoriesController {
                 return "deleteCategories";
             }
         } else {
-            model.addAttribute("error", "Новость с ID " + categoriesId + " не найдена");
+            model.addAttribute("error", "Категория с ID " + categoriesId + " не найдена");
             return "deleteCategories";
         }
     }

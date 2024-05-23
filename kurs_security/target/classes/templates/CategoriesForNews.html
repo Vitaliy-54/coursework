@@ -4,6 +4,7 @@
     <title>Связанные категории с новостью</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body class="container py-5">
 <div th:replace="~{menu :: menu}"></div>
@@ -19,7 +20,6 @@
                 <li th:each="category : ${categories}" th:text="${category.name}">Категория</li>
             </ul>
         </div>
-
 </div>
 <!-- Bootstrap JS and jQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
