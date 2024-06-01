@@ -15,6 +15,11 @@ public class NewsServiceImpl implements NewsService {
     private NewsRepository newsRepository;
 
     @Override
+    public List<News> searchNewsByWord(String word) {
+        return newsRepository.searchNewsByWord(word);
+    }
+    
+    @Override
     public News read(Long id) {
         return newsRepository.findById(id).orElse(null);
     }
