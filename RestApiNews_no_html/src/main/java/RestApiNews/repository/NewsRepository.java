@@ -1,4 +1,3 @@
-
 package RestApiNews.repository;
 
 import RestApiNews.entity.News;
