@@ -25,6 +25,15 @@ public class NewsController {
         return new ResponseEntity<>(entities, HttpStatus.OK);
     }
 
+    @GetMapping("/search/{word}")
+    public ResponseEntity<List<News>> searchNewsByWord(@PathVariable String word) {
+    List<News> newsList = newsService.searchNewsByWord(word);
+    if (newsList.isEmpty()) {
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity<>(newsList, HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<News> getById(@PathVariable Long id) {
         News entity = newsService.read(id);
