@@ -55,8 +55,18 @@ public class NewsController {
         if (existingEntity == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        newsService.edit(entity);
-        return new ResponseEntity<>(entity, HttpStatus.OK);
+
+        // Обновляем существующую сущность с новыми данными
+        existingEntity.setTitle(entity.getTitle());
+        existingEntity.setContent(entity.getContent());
+        existingEntity.setPublishDate(entity.getPublishDate());
+
+        // Если у вас есть необходимость обновить список категорий, вы можете добавить логику для этого.
+        // Например, если вы хотите заменить старые категории на новые:
+        existingEntity.setNewsCategories(entity.getNewsCategories());
+
+        newsService.edit(existingEntity); // Сохраняем обновленную сущность
+        return new ResponseEntity<>(existingEntity, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

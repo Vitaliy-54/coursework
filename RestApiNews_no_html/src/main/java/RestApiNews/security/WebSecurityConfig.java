@@ -11,6 +11,11 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.cors.CorsConfigurationSource;
+
+import java.util.Arrays;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -21,11 +26,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().and().authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/api/newscategories", "/api/news/displayWordcount/**").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/api/newscategories").hasRole("ADMIN")
-                .anyRequest().hasRole("ADMIN")
-                .and().csrf().disable();
+        http.cors() // Включаем поддержку CORS
+                .and()
+                .csrf().disable() // Отключаем CSRF (если необходимо)
+                .authorizeRequests()
+                .anyRequest().permitAll(); // Разрешаем доступ ко всем запросам
     }
 
     @Bean
@@ -44,5 +49,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(authenticationProvider());
+    }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000")); // Разрешаем ваш клиент
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Разрешаем методы
+        configuration.setAllowCredentials(true); // Разрешаем отправку куки
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "Accept")); // Разрешаем заголовки
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration); // Применяем конфигурацию ко всем путям
+        return source;
     }
 }

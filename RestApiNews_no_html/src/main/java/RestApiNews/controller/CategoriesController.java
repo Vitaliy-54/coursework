@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import RestApiNews.entity.Categories;
 import RestApiNews.service.CategoriesService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/categories")
@@ -46,8 +48,13 @@ public class CategoriesController {
         if (existingEntity == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        categoriesService.edit(entity);
-        return new ResponseEntity<>(entity, HttpStatus.OK);
+
+        // Обновляем существующую сущность с новыми данными
+        existingEntity.setName(entity.getName()); // Предположим, что у вас есть метод setName
+        // Обновите другие поля, если необходимо
+
+        categoriesService.edit(existingEntity); // Сохраняем обновленную сущность
+        return new ResponseEntity<>(existingEntity, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

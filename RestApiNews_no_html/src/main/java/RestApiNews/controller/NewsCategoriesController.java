@@ -53,8 +53,15 @@ public class NewsCategoriesController {
         if (existingEntity == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        newsCategoriesService.edit(entity);
-        return new ResponseEntity<>(entity, HttpStatus.OK);
+
+        // Обновляем поля существующей сущности
+        existingEntity.setNews(entity.getNews());
+        existingEntity.setCategories(entity.getCategories());
+
+        // Сохраняем обновленную сущность
+        newsCategoriesService.edit(existingEntity);
+
+        return new ResponseEntity<>(existingEntity, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
